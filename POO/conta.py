@@ -1,5 +1,6 @@
 class Conta:
 
+#Construtor
     def __init__(self, numero, titular, saldo, limite):
         print("Construindo objeto...{}".format(self))
         self.__numero = numero
@@ -7,6 +8,7 @@ class Conta:
         self.__saldo = saldo
         self.__limite = limite
 
+#Métodos
     def extrato(self):
         print("Saldo {} do titular {}".format(self.__saldo, self.__titular))
 
@@ -17,15 +19,13 @@ class Conta:
         if (self.__pode_sacar(valor)):
             self.__saldo -= valor
         else:
-            print("Saldo insuficiente")
-
+            print("Saldo insuficiente.")
     def deposito(self, valor):
         self.__saldo += valor
-
     def transfere(self, valor, destino):
         self.saca(valor)
         destino.deposito(valor)
-        print("Transferência realizada com sucesso")
+        print("Transferência realizada com sucesso.")
 
     #Getters
 
@@ -56,3 +56,12 @@ class Conta:
     @limite.setter
     def limite(self, novo_limite):
         self.__limite = novo_limite
+
+    #StaticMethods
+
+    @staticmethod
+    def codigo_banco():
+        return "001"
+    @staticmethod
+    def codigos_bancos():
+        return {'BB': '001', 'Caixa': '104', 'Bradesco':'237'} 
