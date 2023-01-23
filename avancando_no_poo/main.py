@@ -25,11 +25,17 @@ class Filme(Programa):
         super().__init__(nome, ano)
         self.duracao = duracao
 
+    def imprime(self):
+        print(f"{self._nome} - {self.duracao}min - {self.ano} - {self._likes} Likes")
+
 
 class Serie(Programa):
     def __init__(self, nome, ano, temporadas):
         super().__init__(nome, ano)
         self.temporadas = temporadas
+
+    def imprime(self):
+        print(f"{self._nome} - {self.temporadas} temporadas - {self.ano} - {self._likes} Likes")
 
 
 vingadores = Filme("vingadores - guerra infinita", 2018, 160)
@@ -39,10 +45,15 @@ atlanta = Serie("atlanta", 2018, 2)
 lost_in_space = Serie("lost in space", 2018, 3)
 bones = Serie("bones", 2005, 12)
 
-print("================================Filmes================================")
-print(f"Nome: {vingadores.nome} - {vingadores.ano} - {vingadores.duracao}min : {vingadores.likes}")
-print(f"Nome: {interstelar.nome} - {interstelar.ano} - {interstelar.duracao}min : {interstelar.likes}")
-print("================================Series================================")
-print(f"Nome: {atlanta.nome} - {atlanta.ano} - {atlanta.temporadas} : {atlanta.likes}")
-print(f"Nome: {lost_in_space.nome} - {lost_in_space.ano} - {lost_in_space.temporadas} : {lost_in_space.likes}")
-print(f"Nome: {bones.nome} - {bones.ano} - {bones.temporadas} : {bones.likes}")
+lista_series_filmes = [vingadores, interstelar, lost_in_space, bones, atlanta]
+
+lost_in_space.dar_like()
+lost_in_space.dar_like()
+lost_in_space.dar_like()
+bones.dar_like()
+bones.dar_like()
+bones.dar_like()
+
+for programa in lista_series_filmes:
+    programa.imprime()
+
