@@ -51,6 +51,12 @@ class Playlist(list):
     def tamanho(self):
         return len(self._programas)
 
+    def __getitem__(self,item):
+        return self.__programas[item]
+
+    def __len__(self):
+        return len(self._programas)
+
 vingadores = Filme("vingadores - guerra infinita", 2018, 160)
 interstelar = Filme("interestelar", 2014, 169)
 
@@ -60,6 +66,8 @@ lost_in_space = Serie("lost in space", 2018, 3)
 
 lista_series_filmes = [interstelar, lost_in_space, bones, vingadores, atlanta]
 
+lista_playlist = [interstelar, lost_in_space, bones]
+
 interstelar.dar_like()
 interstelar.dar_like()
 interstelar.dar_like()
@@ -71,11 +79,11 @@ bones.dar_like()
 bones.dar_like()
 bones.dar_like()
 
-playlist_fim_de_semana = Playlist("fim de semana", lista_series_filmes)
+playlist_fim_de_semana = Playlist("fim de semana", lista_playlist)
 
-print(f"tamanho da playlist: {len(playlist_fim_de_semana)} ")
+print(f"Tamanho da playlist: {len(playlist_fim_de_semana)} ")
 
 for programa in playlist_fim_de_semana.listagem:
     print(programa)
 
-print(f"Tá ou não tá? {interstelar in playlist_fim_de_semana}")
+#print(f"Tá ou não tá? {interstelar in playlist_fim_de_semana}")
